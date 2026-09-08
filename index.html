@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To My Favorite Person</title>
+  <meta name="description" content="A little corner of the internet, made just for you.">
+
+  <!-- Google Fonts: a warm serif for headlines, a soft sans-serif for body text, and a handwritten face for the letter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Night sky canvas: stars + drifting particles, drawn behind everything -->
+  <canvas id="sky-canvas"></canvas>
+
+  <!-- Floating hearts container: JS injects hearts here occasionally -->
+  <div id="floating-hearts" aria-hidden="true"></div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav id="site-nav">
+    <span class="nav-mark">✦</span>
+    <button id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-links">
+      <li><a href="#story" class="nav-link">Our Story</a></li>
+      <li><a href="#gallery" class="nav-link">Gallery</a></li>
+      <li><a href="#timeline" class="nav-link">Timeline</a></li>
+      <li><a href="#reasons" class="nav-link">Reasons</a></li>
+      <li><a href="#letter" class="nav-link">Letter</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============ 1. HERO ============ -->
+  <header id="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">for the one who reads this</p>
+      <h1>To My Favorite Person <span class="heart-glyph">❤</span></h1>
+      <p class="hero-subtitle">Every moment with you became one of my favorite memories.</p>
+      <button id="open-heart-btn" class="primary-btn">
+        <span>Open My Heart</span>
+      </button>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      <span></span>
+    </div>
+  </header>
+
+  <!-- ============ 2. OUR STORY ============ -->
+  <section id="story" class="section">
+    <div class="section-inner story-inner">
+      <h2 class="section-title">Our Story</h2>
+      <div class="story-text">
+        <!-- REPLACE: write how you two actually met and fell for each other -->
+        <p>It started on an ordinary day, the kind you don't think to remember until later, when you realize it's the day everything changed. I didn't know then that a simple conversation would turn into the best part of my life.</p>
+        <p>We talked for hours without noticing the time. You had this way of making even the smallest things feel important, and somewhere between the laughing and the late-night messages, I realized I didn't want that feeling to stop.</p>
+        <p>Since then, every day with you has felt like a page in a story I never want to finish writing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. MEMORY GALLERY ============ -->
+  <section id="gallery" class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Memory Gallery</h2>
+      <p class="section-lede">A few of my favorite moments with you. Click any photo to see it up close.</p>
+
+      <div class="gallery-grid">
+        <button class="gallery-item" data-caption="The day everything felt lighter">
+          <img src="assets/photo1.jpg" alt="Memory 1" loading="lazy">
+          <span class="gallery-caption">The day everything felt lighter</span>
+        </button>
+        <button class="gallery-item" data-caption="That laugh I still think about">
+          <img src="assets/photo2.jpg" alt="Memory 2" loading="lazy">
+          <span class="gallery-caption">That laugh I still think about</span>
+        </button>
+        <button class="gallery-item" data-caption="Our favorite quiet evening">
+          <img src="assets/photo3.jpg" alt="Memory 3" loading="lazy">
+          <span class="gallery-caption">Our favorite quiet evening</span>
+        </button>
+        <button class="gallery-item" data-caption="Somewhere we never wanted to leave">
+          <img src="assets/photo4.jpg" alt="Memory 4" loading="lazy">
+          <span class="gallery-caption">Somewhere we never wanted to leave</span>
+        </button>
+        <button class="gallery-item" data-caption="A little chaos, a lot of love">
+          <img src="assets/photo5.jpg" alt="Memory 5" loading="lazy">
+          <span class="gallery-caption">A little chaos, a lot of love</span>
+        </button>
+        <button class="gallery-item" data-caption="Just us, being us">
+          <img src="assets/photo6.jpg" alt="Memory 6" loading="lazy">
+          <span class="gallery-caption">Just us, being us</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox overlay for gallery photos -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lightbox-close" aria-label="Close photo">✕</button>
+    <figure>
+      <img id="lightbox-img" src="" alt="">
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+
+  <!-- ============ 4. OUR TIMELINE ============ -->
+  <section id="timeline" class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Our Timeline</h2>
+      <ol class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Month, Year</span>
+            <h3>The Day We Met</h3>
+            <p>Replace this with the story of how our paths first crossed.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Month, Year</span>
+            <h3>Our First Conversation</h3>
+            <p>Replace this with what we talked about, and how it felt.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Month, Year</span>
+            <h3>Our First Date</h3>
+            <p>Replace this with where we went and what made it memorable.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Month, Year</span>
+            <h3>Our Favorite Memory</h3>
+            <p>Replace this with the moment you both still talk about.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Today</span>
+            <h3>Today</h3>
+            <p>Replace this with how things feel right now, and what you're looking forward to.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 5. REASONS I LOVE YOU ============ -->
+  <section id="reasons" class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Reasons I Love You</h2>
+      <p class="section-lede">Tap a card to flip it. There are more reasons than I could ever fit here.</p>
+
+      <div class="reasons-grid">
+        <button class="reason-card">
+          <div class="reason-card-inner">
+            <div class="reason-face reason-front"><span>01</span></div>
+            <div class="reason-face reason-back">Your smile</div>
+          </div>
+        </button>
+        <button class="reason-card">
+          <div class="reason-card-inner">
+            <div class="reason-face reason-front"><span>02</span></div>
+            <div class="reason-face reason-back">The way you make me laugh</div>
+          </div>
+        </button>
+        <button class="reason-card">
+          <div class="reason-card-inner">
+            <div class="reason-face reason-front"><span>03</span></div>
+            <div class="reason-face reason-back">How you always listen</div>
+          </div>
+        </button>
+        <button class="reason-card">
+          <div class="reason-card-inner">
+            <div class="reason-face reason-front"><span>04</span></div>
+            <div class="reason-face reason-back">Your kindness</div>
+          </div>
+        </button>
+        <button class="reason-card">
+          <div class="reason-card-inner">
+            <div class="reason-face reason-front"><span>05</span></div>
+            <div class="reason-face reason-back">Simply being yourself</div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BACKGROUND MUSIC ============ -->
+  <!-- Plays quietly behind the whole site, on loop. No visible player —
+       just a small mute/unmute control tucked in the corner in case the
+       visitor wants to turn it off. -->
+  <audio id="bg-audio" src="assets/song.mp3" preload="auto" loop></audio>
+  <button id="music-toggle" class="music-toggle" aria-label="Mute music" aria-pressed="false">
+    <svg id="icon-sound-on" viewBox="0 0 24 24" width="18" height="18"><path d="M3 10v4h4l5 5V5L7 10H3z" fill="currentColor"/><path d="M16.5 12c0-1.77-1-3.29-2.5-4.03v8.05c1.5-.73 2.5-2.25 2.5-4.02z" fill="currentColor"/></svg>
+    <svg id="icon-sound-off" viewBox="0 0 24 24" width="18" height="18" style="display:none"><path d="M3 10v4h4l5 5V5L7 10H3z" fill="currentColor"/><path d="M19 12l2.5-2.5-1.4-1.4L17.6 10.6 15.1 8.1l-1.4 1.4L16.2 12l-2.5 2.5 1.4 1.4 2.5-2.5 2.5 2.5 1.4-1.4z" fill="currentColor"/></svg>
+  </button>
+
+  <!-- ============ 7. LOVE LETTER ============ -->
+  <section id="letter" class="section">
+    <div class="section-inner">
+      <h2 class="section-title">A Letter For You</h2>
+      <button id="letter-envelope" class="envelope">
+        <span class="envelope-seal">❤</span>
+        <span class="envelope-label">Tap to open</span>
+      </button>
+
+      <div id="letter-paper" class="letter-paper" hidden>
+        <!-- REPLACE: the letter text below with your own words -->
+        <p>Dear love,</p>
+        <p>[Write my personal letter here.]</p>
+        <p>I hope you always remember how special you are to me.</p>
+        <p class="letter-signoff">Love,<br>[My Name]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. SURPRISE SECTION ============ -->
+  <section id="surprise" class="section">
+    <div class="section-inner surprise-inner">
+      <button id="surprise-btn" class="primary-btn ghost-btn">
+        <span>There's One More Thing…</span>
+      </button>
+      <p id="surprise-message" class="surprise-message" hidden>
+        You are one of the best things that ever happened to me. ❤
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 9. FINAL SECTION ============ -->
+  <footer id="final">
+    <div class="final-heart" aria-hidden="true">❤</div>
+    <p class="final-line">Thank you for being part of my life. ❤</p>
+    <p class="final-sub">Forever grateful for you.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
